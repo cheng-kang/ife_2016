@@ -47,6 +47,7 @@ Definition from [CSS overflow Property](http://www.w3schools.com/cssref/pr_pos_o
 ```
 The overflow property specifies what happens if content overflows an element's box.
 ```
+Property Values:
 
 | Value |	Description |	Play it |
 | :--- | :--- | :--- |
