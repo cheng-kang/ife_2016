@@ -7,6 +7,8 @@ Task8
 ---
 **1. box-sizing:**
 
+>To solve the problem of extra width or height caused by padding and border, one solution maybe subtract the extra manually. But with box-sizing: border-box, the problem will be solved automatically.
+
 Definition from [CSS3 box-sizing Property](http://www.w3schools.com/cssref/css3_pr_box-sizing.asp)
 ```
 The box-sizing property is used to tell the browser what the sizing properties (width and height) should include.
