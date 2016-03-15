@@ -39,3 +39,23 @@ The calc() function performs a calculation to be used as the property value.
 
 For more detail, check [CSS calc() Function](http://www.w3schools.com/CSSref/func_calc.asp). Note that you need to add prefixs(-webkit-, -moz-, or -o-) to make it work in different browsers.
 
+**3. overflow**
+
+>Since the width of each grid is fixed(relatively), the content might overflows.
+
+Definition from [CSS overflow Property](http://www.w3schools.com/cssref/pr_pos_overflow.asp)
+```
+The overflow property specifies what happens if content overflows an element's box.
+```
+
+| Value |	Description |	Play it |
+| :--- | :--- | :--- |
+| visible |	The overflow is not clipped. It renders outside the element's box. This is default |	[Play it »](http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow) |
+| hidden |	The overflow is clipped, and the rest of the content will be invisible |	[Play it »](http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow&preval=hidden) |
+| scroll |	The overflow is clipped, but a scroll-bar is added to see the rest of the content |	[Play it »](http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow&preval=scroll) |
+| auto |	If overflow is clipped, a scroll-bar should be added to see the rest of the content |	[Play it »](http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow&preval=auto) |
+| initial |	Sets this property to its default value. Read about initial |	[Play it »](http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow&preval=initial) |
+| inherit |	Inherits this property from its parent element. Read about inherit| |
+
+
+
