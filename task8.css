@@ -1,0 +1,83 @@
+/* test */
+[class*="col-"] {
+    background-color: #eee;
+    border: 1px solid #999;
+    min-height: 50px;
+    padding: 10px;
+    position: relative;
+    float:left;
+    margin: 10px;
+    
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+　　-webkit-box-sizing: border-box;
+    
+    overflow-x: auto;
+}
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+/* css for sm screen */
+@media (min-width: 544px) {
+    .container {
+        width: 100%;
+        max-width: 576px;
+        
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+    }
+    
+    .row {
+        width: 100%;
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+    }
+    .row:before,
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    .col-xl-1 {
+        width: calc(8.33333% - 20px);
+    }
+    .col-xl-2 {
+        width: calc(16.66667% - 20px);
+    }
+    .col-xl-3 {
+        width: calc(25% - 20px);
+    }
+    .col-xl-4 {
+        width: calc(33.33333% - 20px);
+    }
+    .col-xl-5 {
+        width: calc(41.66667% - 20px);
+    }
+    .col-xl-6 {
+        width: calc(50% - 20px);
+    }
+    .col-xl-7 {
+        width: calc(58.33333% - 20px);
+    }
+    .col-xl-8 {
+        width: calc(66.66667% - 20px);
+    }
+    .col-xl-9 {
+        width: calc(75% - 20px);
+    }
+    .col-xl-10 {
+        width: calc(83.33333% - 20px);
+    }
+    .col-xl-11 {
+        width: calc(91.66667% - 20px);
+    }
+    .col-xl-12 {
+        width: calc(100% - 20px);
+    }
+    
+}
