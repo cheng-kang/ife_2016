@@ -60,9 +60,9 @@ Property Values:
 
 **4.clearfix hack**
 
-Read the accepted answer.
-
-- [StackOverflow: What is clear fix](http://stackoverflow.com/questions/8554043/what-is-clearfix)
+- Read the accepted answer: [StackOverflow: What is clear fix](http://stackoverflow.com/questions/8554043/what-is-clearfix)
+- [Clearing Floats: An Overview of Different clearfix Methods](http://www.sitepoint.com/clearing-floats-overview-different-clearfix-methods/)
+- [Force Element To Self-Clear its Children](https://css-tricks.com/snippets/css/clear-fix/)
 
 About float:
 
