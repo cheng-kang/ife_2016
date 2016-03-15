@@ -1,23 +1,24 @@
 html,body {
 	margin: 0;
 	padding: 0;
+    
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1rem;
     line-height: 1.5;
 }
 
 .container {
-    box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
     
 .row {
     width: 100%;
 
-    box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 .row::before,
 .row::after {
@@ -27,18 +28,18 @@ html,body {
 }
 
 [class*="col-"] {
+    padding: 10px;
+    margin: 10px;
+
+    float:left;
+    min-height: 50px;
+    overflow: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    
     background-color: #eee;
     border: 1px solid #999;
-    min-height: 50px;
-    padding: 10px;
-    float:left;
-    margin: 10px;
-    
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-　　-webkit-box-sizing: border-box;
-    
-    overflow: auto;
 }
 
 /* for xl screen */
