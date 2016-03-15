@@ -58,5 +58,22 @@ Property Values:
 | initial |	Sets this property to its default value. Read about initial |	[Play it »](http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow&preval=initial) |
 | inherit |	Inherits this property from its parent element. Read about inherit| |
 
+**4.clearfix hack**
+
+Read the accepted answer.
+
+- [StackOverflow: What is clear fix](http://stackoverflow.com/questions/8554043/what-is-clearfix)
+
+About float:
+
+- [All About Floats](https://css-tricks.com/all-about-floats/)
+
+**5.diplay: table**
+
+[CSS display property](http://www.w3schools.com/cssref/pr_class_display.asp)
+
+Surprisingly useful:
+
+- [The Anti-hero of CSS Layout - "display:table"](http://colintoh.com/blog/display-table-anti-hero)
 
 
