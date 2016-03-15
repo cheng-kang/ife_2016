@@ -13,6 +13,7 @@ The box-sizing property is used to tell the browser what the sizing properties (
 Should they include the border-box? Or just the content-box (which is the default value of the width and height properties)?
 ```
 **Property Values**
+
 | Value	| Description |
 | :--- | :--- |
 | content-box	| Default. The width and height properties (and min/max properties) includes only the content. Border, padding, or margin are not included |
