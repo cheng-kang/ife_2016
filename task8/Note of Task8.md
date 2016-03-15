@@ -36,7 +36,7 @@ For more detail, check [CSS calc() Function](http://www.w3schools.com/CSSref/fun
 
 **3. overflow**
 
->Since the width of each grid is fixed(relatively), the content might overflows.
+>Since the width of each grid is fixed(relatively), the content might overflow.
 
 Definition from [CSS overflow Property](http://www.w3schools.com/cssref/pr_pos_overflow.asp)
 ```
