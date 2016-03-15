@@ -5,7 +5,7 @@ Notes
 
 Task8
 ---
-1 box-sizing:
+1. box-sizing:
 Definition from [CSS3 box-sizing Property](http://www.w3schools.com/cssref/css3_pr_box-sizing.asp)
 ```
 The box-sizing property is used to tell the browser what the sizing properties (width and height) should include.
