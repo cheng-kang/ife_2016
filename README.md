@@ -78,3 +78,8 @@ Surprisingly useful:
 
 - [The Anti-hero of CSS Layout - "display:table"](http://colintoh.com/blog/display-table-anti-hero)
 
+
+Task22
+---
+**1.how to set the margin between nodes**
+[二叉树的一种绘制方法](http://wenku.baidu.com/link?url=EFbFSzcTeTeDe2sWVlVWJPiu2RHTTXQ4etHLCq5449j65Dh8jjW91Ahm6sMR6rzE9HmWwaGIkyZMCe6bB_t_YhVDJVkcIJ4aAeW0id1X7HK)
