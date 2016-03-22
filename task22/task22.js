@@ -11,11 +11,9 @@ var ROOT = new Object();
 // 当前节点所在深度的所有节点间 x 轴间距
 var MARGIN_X = function(node){
 	var wide = canvas.width/(Math.pow(2, getRelativeDepth(node))+1);
-	console.log(node);
-	console.log(getRelativeDepth(node));
-	console.log(Math.pow(2, getRelativeDepth(node))*wide);
 	return wide
 };
+
 // 所有节点 y 轴间距
 var MARGIN_Y = function(){
 	// return canvas.height/getDepth(ROOT, 1)
@@ -66,7 +64,7 @@ function getRootNode() {
 	return node;
 }
 
-// 添加子节点
+// 添加子节点 - 用于完全二叉树
 function addChild(node){
 	if(isEmptyObject(node.leftChild)){
 		node.leftChild = {
@@ -85,23 +83,22 @@ function addChild(node){
 	}
 }
 
-// 打印指定节点
-function showNode(node) {
-	context.fillStyle= COLOR;
-	context.beginPath();
-	context.arc(node.pos_x, node.pos_y, RADIUS, 0, Math.PI*2, true);
-	context.closePath();
-	context.fill();
+// 添加左子节点
+function addLeftChild(node){
+	node.leftChild = {
+		pos_x: 0,
+		pos_y: 0,
+		leftChild: new Object(),
+		rightChild: new Object()
+	};
 }
-
-// 打印子节点和节点间连线
-function showChild(father, child, which){
-	if(which == "l"){
-		drawLine(father.pos_x, father.pos_y, child.pos_x, child.pos_y);
-		drawCircle(child.pos_x, child.pos_y, RADIUS, COLOR);
-	}else if(which == "r"){
-		drawLine(father.pos_x, father.pos_y, child.pos_x, child.pos_y);
-		drawCircle(child.pos_x, child.pos_y, RADIUS, COLOR);
+// 添加右子节点
+function addRightChild(node){
+	node.leftChild = {
+		pos_x: 0,
+		pos_y: 0,
+		leftChild: new Object(),
+		rightChild: new Object()
 	};
 }
 
@@ -137,43 +134,73 @@ function transformTreeToPreOrderArray(node, treeArr){
 	return treeArr
 }
 
-// 一种不完整的前序打印方法，不想改了
-function preOrder(node) {
+// 将树转换成前序排列的数组
+function transformTreeToInOrderArray(node, treeArr){
 	if(!isEmptyObject(node.leftChild)){
-		showChild(node, node.leftChild, "l");
-		setTimeout(function(){
-			preOrder(node.leftChild);
-		}, 1000);
-	}
-	setTimeout(function(){
-		if(!isEmptyObject(node.rightChild)){
-			showChild(node, node.rightChild, "r");
-			setTimeout(function(){
-				preOrder(node.rightChild);
-			}, 1000);
-		}
-	}, 1000)
+		transformTreeToInOrderArray(node.leftChild, treeArr);
+	};
+	treeArr.push(node);
+	if(!isEmptyObject(node.rightChild)){
+		transformTreeToInOrderArray(node.rightChild, treeArr);
+	};
+
+	return treeArr
 }
 
-// 打印节点
-function play() {
-	// 节点间有连线但节点不是一次出现
-	// showNode(ROOT);
-	// preOrder(ROOT);
+// 将树转换成前序排列的数组
+function transformTreeToPostOrderArray(node, treeArr){
+	if(!isEmptyObject(node.leftChild)){
+		transformTreeToPostOrderArray(node.leftChild, treeArr);
+	};
+	if(!isEmptyObject(node.rightChild)){
+		transformTreeToPostOrderArray(node.rightChild, treeArr);
+	};
+	treeArr.push(node);
 
-	//节点间无连线，节点以此出现
-	var treeArr = transformTreeToPreOrderArray(ROOT, []);
+	return treeArr
+}
+
+// 打印指定节点
+function showNode(node) {
+	context.fillStyle= COLOR;
+	context.beginPath();
+	context.arc(node.pos_x, node.pos_y, RADIUS, 0, Math.PI*2, true);
+	context.closePath();
+	context.fill();
+}
+
+// 打印树
+function play(order) {
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	clearInterval();
+	clearTimeout();
+
+	var treeArr = [];
+	if(order=="PreOrder"){
+		treeArr = transformTreeToPreOrderArray(ROOT, []);
+	}else if(order=="InOrder"){
+		treeArr = transformTreeToInOrderArray(ROOT, []);
+	}else{
+		treeArr = transformTreeToPostOrderArray(ROOT, []);
+	}
+
 
 	var i = 0;
 	var l = treeArr.length
-	var int = setInterval(function(){
+	var interval = setInterval(function(){
 				if(i >= l){
-					clearInterval(int);
+					clearInterval(interval);
+					timeout = setTimeout(function(){
+								clearTimeout(timeout);
+								changeColor(ANOTHER_COLOR);
+								context.beginPath();
+							}, 500);
+				}else{
+					changeColor(ANOTHER_COLOR);
+					showNode(treeArr[i]);
+					i++;
 				}
-				changeColor(ANOTHER_COLOR);
-				showNode(treeArr[i]);
-				i++;
-			}, 500*(i+1));
+			}, 500);
 }
 
 // 初始化树
@@ -183,13 +210,12 @@ function initTree(){
 	addChild(ROOT);
 	addChild(ROOT.leftChild);
 	addChild(ROOT.leftChild);
-	addChild(ROOT.leftChild.rightChild);
+	addChild(ROOT.leftChild.leftChild);
+	addChild(ROOT.leftChild.leftChild);
 	addChild(ROOT.leftChild.rightChild);
 	addChild(ROOT.rightChild);
 	addChild(ROOT.rightChild);
 	addChild(ROOT.rightChild.leftChild);
-	addChild(ROOT.rightChild.rightChild);
-	addChild(ROOT.rightChild.rightChild);
 }
 
 // 初始化树中节点坐标
@@ -207,7 +233,9 @@ function initPosition(father_x, father_y, child, which){
 // go go go
 initTree();
 initPosition(0, 0, ROOT, "root");
-play()
+// play("PreOrder")
+// play("InOrder")
+// play("PostOrder")
 
 
 
