@@ -30,9 +30,9 @@ function isEmptyObject(anObject) {
 }
 
 // 根据参数画线
-function drawLine(from_x, from_y, to_x, to_y) {
-	context.moveTo(from_x, from_y);
-	context.lineTo(to_x, to_y);
+function drawLine(fromX, fromY, toX, toY) {
+	context.moveTo(fromX, fromY);
+	context.lineTo(toX, toY);
 	context.stroke();
 }
 
@@ -55,8 +55,8 @@ function changeColor(color){
 // 初始化根节点
 function getRootNode() {
 	var node = {
-		pos_x: 0,
-		pos_y: 0,
+		posX: 0,
+		posY: 0,
 		leftChild: new Object(),
 		rightChild: new Object()
 	};
@@ -68,15 +68,15 @@ function getRootNode() {
 function addChild(node){
 	if(isEmptyObject(node.leftChild)){
 		node.leftChild = {
-			pos_x: 0,
-			pos_y: 0,
+			posX: 0,
+			posY: 0,
 			leftChild: new Object(),
 			rightChild: new Object()
 		};
 	}else if(isEmptyObject(node.rightChild)){
 		node.rightChild = {
-			pos_x: 0,
-			pos_y: 0,
+			posX: 0,
+			posY: 0,
 			leftChild: new Object(),
 			rightChild: new Object()
 		};
@@ -86,8 +86,8 @@ function addChild(node){
 // 添加左子节点
 function addLeftChild(node){
 	node.leftChild = {
-		pos_x: 0,
-		pos_y: 0,
+		posX: 0,
+		posY: 0,
 		leftChild: new Object(),
 		rightChild: new Object()
 	};
@@ -95,8 +95,8 @@ function addLeftChild(node){
 // 添加右子节点
 function addRightChild(node){
 	node.leftChild = {
-		pos_x: 0,
-		pos_y: 0,
+		posX: 0,
+		posY: 0,
 		leftChild: new Object(),
 		rightChild: new Object()
 	};
@@ -164,7 +164,7 @@ function transformTreeToPostOrderArray(node, treeArr){
 function showNode(node) {
 	context.fillStyle= COLOR;
 	context.beginPath();
-	context.arc(node.pos_x, node.pos_y, RADIUS, 0, Math.PI*2, true);
+	context.arc(node.posX, node.posY, RADIUS, 0, Math.PI*2, true);
 	context.closePath();
 	context.fill();
 }
@@ -219,24 +219,20 @@ function initTree(){
 }
 
 // 初始化树中节点坐标
-function initPosition(father_x, father_y, child, which){
-	child.pos_x = which=="l"?father_x - MARGIN_X(child)/2:which=="r"?father_x + MARGIN_X(child)/2:father_x + MARGIN_X(child);
-	child.pos_y = father_y + MARGIN_Y();
+function initPosition(fatherX, fatherY, child, which){
+	child.posX = which=="l"?fatherX - MARGIN_X(child)/2:which=="r"?fatherX + MARGIN_X(child)/2:fatherX + MARGIN_X(child);
+	child.posY = fatherY + MARGIN_Y();
 	if(!isEmptyObject(child.leftChild)){
-		initPosition(child.pos_x, child.pos_y, child.leftChild, "l")
+		initPosition(child.posX, child.posY, child.leftChild, "l")
 	}
 	if(!isEmptyObject(child.rightChild)){
-		initPosition(child.pos_x, child.pos_y, child.rightChild, "r")
+		initPosition(child.posX, child.posY, child.rightChild, "r")
 	}
 }
 
 // go go go
 initTree();
 initPosition(0, 0, ROOT, "root");
-// play("PreOrder")
-// play("InOrder")
-// play("PostOrder")
-
 
 
 
